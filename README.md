@@ -7,8 +7,12 @@
 
 ## Goals
 
-- Explore- and make use of Python libraries that are currently new to me.
-- If possible, repeat daily challenges using the Go programming language.
+- Explore- and make use of Python syntax that can still be considered new to me, such as e.g.
+  - dataclass.
+  - lambda.
+  - map().
+  - reduce().
+- If possible, repeat daily challenges using the Go programming language, using more of a brute-force approach.
 - Collect at least 30 stars.
 
 ## Status

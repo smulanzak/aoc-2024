@@ -1,33 +1,36 @@
 # Correct answer for Part 1: 2904518.
 # Correct answer for Part 2: 18650129.
 
+from collections import Counter
+
 EXAMPLE = "python/day01/example.txt"
 INPUT = "python/day01/input.txt"
 
-def parse(input: str) -> list[list[int], list[int]]:
+def parse(input: str) -> list[tuple[int, int]]:
     left, right = [], []
     with open(input) as f:
         for line in f.readlines():
-            l, r = ' '.join(line.split('\n')[0].split(' ')).split()
+            l, r = line.split('\n')[0].split('   ')
             left.append(int(l))
             right.append(int(r))
-    return sorted(left), sorted(right)
+    return list(zip(sorted(left), sorted(right)))
 
-def solve1(left: list[int], right: list[int]) -> int:
-    return sum([abs(left[i] - right[i]) for i in range(len(left))])
+def solve1(ids: list[tuple[int, int]]) -> int:
+    return sum([abs(x - y) for x, y in ids])
 
-def solve2(left: list[int], right: list[int]) -> int:
-    return sum(left[i] * right.count(left[i]) for i in range(len(left)))
+def solve2(ids: list[tuple[int, int]]) -> int:
+    left, right = zip(*ids)
+    return sum([x * Counter(right)[x] for x in left])
 
 def test() -> None:
-    left, right = parse(EXAMPLE)
-    assert solve1(left, right) == 11
-    assert solve2(left, right) == 31
+    ids = parse(EXAMPLE)
+    assert solve1(ids) == 11
+    assert solve2(ids) == 31
 
 def main() -> None:
-    left, right = parse(INPUT)
-    print(f"Answer for part 1: {solve1(left, right)}.")
-    print(f"Answer for part 2: {solve2(left, right)}.")
+    ids = parse(INPUT)
+    print(f"Answer for part 1: {solve1(ids)}.")
+    print(f"Answer for part 2: {solve2(ids)}.")
 
 if __name__ == "__main__":
     test()

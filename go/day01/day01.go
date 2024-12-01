@@ -23,7 +23,7 @@ func getLocationIds(text string) ([]int, []int) {
 	var left []int
 	var right []int
 	for _, line := range strings.Split(text, "\r\n") {
-		ids := removeStringFromSlice(strings.Split(line, " "), "")
+		ids := strings.Split(line, "   ")
 		l, _ := strconv.Atoi(ids[0])
 		r, _ := strconv.Atoi(ids[1])
 		left = append(left, l)
@@ -32,16 +32,6 @@ func getLocationIds(text string) ([]int, []int) {
 	slices.Sort(left)
 	slices.Sort(right)
 	return left, right
-}
-
-func removeStringFromSlice(list []string, subString string) []string {
-	var result []string
-	for _, s := range list {
-		if s != subString {
-			result = append(result, s)
-		}
-	}
-	return result
 }
 
 func getDistance(left []int, right []int) int {

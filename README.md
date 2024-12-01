@@ -12,6 +12,8 @@
   - lambda.
   - map().
   - reduce().
+  - zip().
+  - Counter().
 - If possible, repeat daily challenges using the Go programming language, using more of a brute-force approach.
 - Collect at least 30 stars.
 

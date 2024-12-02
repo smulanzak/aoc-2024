@@ -19,8 +19,11 @@
 
 ## Status
 
-Stars: 2/50.
+Stars: 4/50.
 
 - Day 1
   - Part 1: Python, Go.
   - Part 2: Python, Go.
+- Day 2
+  - Part 1: Python.
+  - Part 2: Python.

@@ -1,11 +1,6 @@
 # Advent of Code 2024
 
-## Priority
-
-1) Python.
-2) Go.
-
-## Goals
+## Goals during the event
 
 - Explore- and make use of Python syntax that can still be considered new to me, such as e.g.
   - Added before the event started
@@ -17,16 +12,15 @@
   - Added after the event started
     - Counter().
     - all().
-- If possible, repeat daily challenges using the Go programming language, using more of a brute-force approach.
 - Collect at least 30 stars.
 
-## Status
+## Event status
 
 Stars: 4/50.
 
 - Day 1
-  - Part 1: Python, Go.
-  - Part 2: Python, Go.
+  - Part 1.
+  - Part 2.
 - Day 2
-  - Part 1: Python.
-  - Part 2: Python.
+  - Part 1.
+  - Part 2.

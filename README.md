@@ -8,12 +8,15 @@
 ## Goals
 
 - Explore- and make use of Python syntax that can still be considered new to me, such as e.g.
-  - dataclass.
-  - lambda.
-  - map().
-  - reduce().
-  - zip().
-  - Counter().
+  - Added before the event started
+    - dataclass.
+    - lambda.
+    - map().
+    - reduce().
+    - zip().
+  - Added after the event started
+    - Counter().
+    - all().
 - If possible, repeat daily challenges using the Go programming language, using more of a brute-force approach.
 - Collect at least 30 stars.
 

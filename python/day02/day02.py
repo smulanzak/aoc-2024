@@ -13,38 +13,28 @@ def parse(input: str) -> list[list[int]]:
             levels_list.append(list(map(int, line.split('\n')[0].split(' '))))
     return levels_list
 
-def safe(levels: list[int], part: int) -> bool:
-    outcome = validate(get_validation_list(levels))
-    match part:
-        case 1:
-            return outcome
-        case 2:
-            return outcome or True in [validate(get_validation_list(remove_index(levels, i))) for i in range(len(levels))]
-
-def get_validation_list(levels: list[int]) -> list[int]:
-    return [levels[i]-levels[i+1] for i in range(len(levels)-1)]
-
 def remove_index(levels: list[int], index: int) -> list[int]:
     levels_copy = copy.deepcopy(levels)
     levels_copy.pop(index)
     return levels_copy
 
-def validate(distances: list[int]) -> bool:
-    lower = -4 if distances[0] < 0 else 0
-    upper = 0 if distances[0] < 0 else 4
-    for distance in distances:
-        if distance <= lower or distance >= upper:
-            return False
-    return True
+def validate_base(levels: list[int]) -> bool:
+    return validate_distance(levels) and (validate_order(levels) or validate_order(levels, -1))
 
-def safe_count(level_list: list[list[int]], part: int) -> int:
-    return sum([safe(levels, part) for levels in level_list])
+def validate_distance(levels: list[int]) -> bool:
+    return all([abs(levels[i]-levels[i+1]) in [1, 2, 3] for i in range(len(levels)-1)])
+
+def validate_order(levels: list[int], order=0) -> bool:
+    return all([levels[i] < levels[i+1] if order >= 0 else levels[i] > levels[i+1] for i in range(len(levels)-1)])
+
+def validate_removed(levels: list[int]) -> bool:
+    return validate_base(levels) or any([validate_base(remove_index(levels, i)) for i in range(len(levels))])
 
 def solve1(levels_list: list[list[int]]) -> int:
-    return safe_count(levels_list, part=1)
+    return sum([validate_base(levels) for levels in levels_list])
 
 def solve2(levels_list: list[list[int]]) -> int:
-    return safe_count(levels_list, part=2)
+    return sum([validate_removed(levels) for levels in levels_list])
 
 def test() -> None:
     levels_list = parse(EXAMPLE)

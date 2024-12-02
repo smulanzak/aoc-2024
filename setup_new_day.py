@@ -2,8 +2,8 @@ import os
 import sys
 
 DAY = f"day{'0' if len(sys.argv[1]) == 1 else ''}{sys.argv[1]}"
-EXAMPLE = "example.txt"
-INPUT = "input.txt"
+EXAMPLE = f"{DAY}.example"
+INPUT = f"{DAY}.input"
 LANG = sys.argv[2]
 
 def create_directory() -> None:

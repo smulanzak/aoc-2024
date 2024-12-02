@@ -3,8 +3,8 @@
 
 from collections import Counter
 
-EXAMPLE = "python/day01/example.txt"
-INPUT = "python/day01/input.txt"
+EXAMPLE = "python/day01/day01.example"
+INPUT = "python/day01/day01.input"
 
 def parse(input: str) -> list[tuple[int, int]]:
     left, right = [], []

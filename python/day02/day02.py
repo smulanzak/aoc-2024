@@ -3,8 +3,8 @@
 
 import copy
 
-EXAMPLE = "python/day02/example.txt"
-INPUT = "python/day02/input.txt"
+EXAMPLE = "python/day02/day02.example"
+INPUT = "python/day02/day02.input"
 
 def parse(input: str) -> list[list[int]]:
     levels_list = []

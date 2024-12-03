@@ -3,20 +3,17 @@
 
 import re
 
-EXAMPLE1 = "python/day03/day03.example1"
-EXAMPLE2 = "python/day03/day03.example2"
+PATTERNS = [r'mul\(\d{1,3},\d{1,3}\)', r'(?:mul\(\d{1,3},\d{1,3}\))|(?:do\(\))|(?:don\'t\(\))']
+EXAMPLES = ["python/day03/day03.example1", "python/day03/day03.example2"]
 INPUT = "python/day03/day03.input"
-
-PATTERN1 = r'mul\(\d{1,3},\d{1,3}\)'
-PATTERN2 = r'(?:mul\(\d{1,3},\d{1,3}\))|(?:do\(\))|(?:don\'t\(\))'
 
 def parse(input: str, part: int) -> list[str]:
     with open(input) as f:
-        return re.findall(PATTERN1, f.read()) if part == 1 else re.findall(PATTERN2, f.read())
+        return re.findall(PATTERNS[0], f.read()) if part == 1 else re.findall(PATTERNS[1], f.read())
 
 def multiply(instruction: str) -> int:
-    i, j = instruction.split('(')[-1].split(')')[0].split(',')
-    return int(int(i) * int(j))
+    i, j = tuple(map(int, instruction.split('(')[-1].split(')')[0].split(',')))
+    return int(i * j)
 
 def get_enabled_instructions(instructions: list[str]) -> list[str]:
     output = []
@@ -34,8 +31,8 @@ def solve2(instructions: list[str]) -> int:
     return sum([multiply(instruction) for instruction in get_enabled_instructions(instructions)])
 
 def test() -> None:
-    assert solve1(parse(EXAMPLE1, part=1)) == 161
-    assert solve2(parse(EXAMPLE2, part=2)) == 48
+    assert solve1(parse(EXAMPLES[0], part=1)) == 161
+    assert solve2(parse(EXAMPLES[1], part=2)) == 48
 
 def main() -> None:
     print(f"Answer for part 1: {solve1(parse(INPUT, part=1))}.")

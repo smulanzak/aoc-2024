@@ -16,16 +16,16 @@ def remove_index(levels: list[int], index: int) -> list[int]:
     return levels_copy
 
 def validate_base(levels: list[int]) -> bool:
-    return validate_distance(levels) and (validate_order(levels) or validate_order(levels, -1))
+    return validate_distance(levels) and validate_order(levels)
 
 def validate_distance(levels: list[int]) -> bool:
     return all([abs(levels[i]-levels[i+1]) in [1, 2, 3] for i in range(len(levels)-1)])
 
-def validate_order(levels: list[int], order=0) -> bool:
-    return all([levels[i] < levels[i+1] if order >= 0 else levels[i] > levels[i+1] for i in range(len(levels)-1)])
+def validate_order(levels: list[int]) -> bool:
+    return levels == sorted(levels) or levels == sorted(levels, reverse=True)
 
 def validate_removed(levels: list[int]) -> bool:
-    return validate_base(levels) or any([validate_base(remove_index(levels, i)) for i in range(len(levels))])
+    return any([validate_base(remove_index(levels, i)) for i in range(len(levels))])
 
 def solve1(levels_list: list[list[int]]) -> int:
     return sum([validate_base(levels) for levels in levels_list])

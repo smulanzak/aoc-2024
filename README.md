@@ -10,17 +10,21 @@
     - reduce().
     - zip().
   - Added after the event started
+    - regex.
     - Counter().
     - all().
 - Collect at least 30 stars.
 
 ## Event status
 
-Stars: 4/50.
+Stars: 6/50.
 
 - Day 1
   - Part 1.
   - Part 2.
 - Day 2
+  - Part 1.
+  - Part 2.
+- Day 3
   - Part 1.
   - Part 2.

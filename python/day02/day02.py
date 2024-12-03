@@ -7,11 +7,8 @@ EXAMPLE = "python/day02/day02.example"
 INPUT = "python/day02/day02.input"
 
 def parse(input: str) -> list[list[int]]:
-    levels_list = []
     with open(input) as f:
-        for line in f.readlines():
-            levels_list.append(list(map(int, line.split('\n')[0].split(' '))))
-    return levels_list
+        return [list(map(int, line.split('\n')[0].split(' '))) for line in f.readlines()]
 
 def remove_index(levels: list[int], index: int) -> list[int]:
     levels_copy = copy.deepcopy(levels)

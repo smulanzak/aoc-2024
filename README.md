@@ -17,7 +17,7 @@
 
 ## Event status
 
-Stars: 6/50.
+Stars: 8/50.
 
 - Day 1
   - Part 1.
@@ -26,5 +26,8 @@ Stars: 6/50.
   - Part 1.
   - Part 2.
 - Day 3
+  - Part 1.
+  - Part 2.
+- Day 4
   - Part 1.
   - Part 2.

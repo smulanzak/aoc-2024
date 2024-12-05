@@ -28,8 +28,8 @@ def get_diagonals(rows: list[str], lock="col") -> list[str]:
         diagonals.append(string)
     return diagonals
 
+# Don't count the first diagonal twice for any direction.
 def count_diagonals(rows: list[str]) -> int:
-    # Don't count the first diagonal twice for any direction
     diagonals = get_diagonals(rows)[1:] + get_diagonals(rows, lock="row") + get_diagonals(reverse(rows))[1:] + get_diagonals(reverse(rows), lock="row")
     return sum([len(re.findall(PATTERN, row)) for row in diagonals])
 
